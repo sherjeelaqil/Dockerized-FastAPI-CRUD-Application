@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+bcrypt
+passlib[bcrypt]
+sqlalchemy
+pydantic
+python-jose
+pytest
+pytest-asyncio
+httpx
