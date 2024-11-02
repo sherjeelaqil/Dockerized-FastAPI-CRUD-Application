@@ -142,66 +142,70 @@ uvicorn app.main:app --reload
 ### Authentication Endpoints
 
 #### Register User
-```curl -X 'POST' \
-  'http://localhost:8000/register?token=XXXXXXXXXXX' \
+```bash
+curl -X POST 'http://localhost:8000/register' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer YOUR_TOKEN_HERE' \
   -d '{
-  "email": "test2@example.com",
-  "password": "test2",
-  "role": "user",
-  "username": "test2"
-}'
+    "email": "test2@example.com",
+    "password": "test2",
+    "role": "user",
+    "username": "test2"
+  }'
 ```
 
 #### Login
-```curl -X 'POST' \
-  'http://localhost:8000/login' \
+```bash
+curl -X POST 'http://localhost:8000/login' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
-  "username": "test",
-  "password": "strongpass123"
-}'
+    "username": "test",
+    "password": "strongpass123"
+  }'
 ```
 
 ### User Management Endpoints
 
-All these endpoints require JWT authentication token in the header:
-```http
-Authorization: Bearer <your_jwt_token>
+> **Note**: All endpoints require JWT authentication. Include the token in the Authorization header:
+```bash
+Authorization: Bearer YOUR_JWT_TOKEN_HERE
 ```
 
 #### Get All Users (Admin Only)
-```curl -X 'GET' \
-  'http://localhost:8000/users?token=XXXXXXXXXXXXXXXX' \
-  -H 'accept: application/json'
+```bash
+curl -X GET 'http://localhost:8000/users' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer YOUR_JWT_TOKEN_HERE'
 ```
 
 #### Get User by ID
-```curl -X 'GET' \
-  'http://localhost:8000/users/2?token=XXXXXXXXXXXXXXXXX' \
-  -H 'accept: application/json'
+```bash
+curl -X GET 'http://localhost:8000/users/2' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer YOUR_JWT_TOKEN_HERE'
 ```
 
 #### Update User (Admin Only)
-```curl -X 'PUT' \
-  'http://localhost:8000/users/2?XXXXXXXXXXXXXX' \
+```bash
+curl -X PUT 'http://localhost:8000/users/2' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
+  -H 'Authorization: Bearer YOUR_JWT_TOKEN_HERE' \
   -d '{
-  "username": "test",
-  "email": "test@example.com",
-  "password": "strongpass123",
-  "role": "admin"
-}'
+    "username": "test",
+    "email": "test@example.com",
+    "password": "strongpass123",
+    "role": "admin"
+  }'
 ```
 
 #### Delete User (Admin Only)
-```curl -X 'DELETE' \
-  'http://localhost:8000/users/2?XXXXXXXXXXXXX' \
-  -H 'accept: */*'
-```
+```bash
+curl -X DELETE 'http://localhost:8000/users/2' \
+  -H 'accept: application/json' \
+  -H 'Authorization: Bearer YOUR_JWT_TOKEN_HERE'
 
 ## 🏗️ Project Structure
 
