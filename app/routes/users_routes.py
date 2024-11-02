@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 from typing import List
 from app import auth
 from app.common.database import get_db
+from app.common.limiter import rate_limiter
 from app.crud import crud
 from app.dependencies import get_current_user, get_current_admin_user
 from app.models import users_models
@@ -45,6 +46,7 @@ def login(
     user: users_schemas.UserLogin,
     db: Session = Depends(get_db)
 ):
+    rate_limiter(request)
     logger.info(f"Login attempt for user: {user.username}")
     db_user = crud.get_user_by_username(db, user.username)
     if not db_user or not auth.verify_password(user.password, db_user.password):
