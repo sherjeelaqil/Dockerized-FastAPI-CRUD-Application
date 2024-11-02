@@ -4,61 +4,85 @@ This project is a User Management System built with FastAPI, providing a RESTful
 
 ## 📋 Features Checklist
 
-- [ ] **CRUD Operations**
-  - [ ] Create user endpoint
-  - [ ] Read user(s) endpoint
-  - [ ] Update user endpoint
-  - [ ] Delete user endpoint
-  - [ ] User model with required fields (id, username, email, password, role)
+### 📦 CRUD Operations
+  - [*] Create user endpoint
+  - [*] Read user(s) endpoint
+  - [*] Update user endpoint
+  - [*] Delete user endpoint
+  - [*] User model with required fields
+    - [*] id (unique identifier)
+    - [*] username (unique, required)
+    - [*] email (unique, required)
+    - [*] password (required)
+    - [*] role (admin/user)
 
-- [ ] **Authentication**
-  - [ ] JWT token-based authentication
-  - [ ] Login endpoint implementation
-  - [ ] Password hashing
-  - [ ] Secure token generation and validation
+### 🔐 Authentication
+  - [*] JWT token-based authentication
+  - [*] Login endpoint implementation
+  - [*] Password hashing
+  - [*] Secure token generation and validation
 
-- [ ] **Authorization**
-  - [ ] Role-based access control (admin/user roles)
-  - [ ] Authorization middleware
-  - [ ] Protected route implementation
-  - [ ] User-specific access restrictions
+### 👮 Authorization
+  - [*] Role-based access control
+    - [*] Admin role permissions
+    - [*] User role permissions
+  - [*] Authorization middleware
+  - [*] Protected route implementation
+  - [*] User-specific access restrictions
 
-- [ ] **API Endpoints**
-  - [ ] POST /register
-  - [ ] POST /login
-  - [ ] GET /users
-  - [ ] GET /users/{id}
-  - [ ] PUT /users/{id}
-  - [ ] DELETE /users/{id}
+### 🛣️ API Endpoints
+  - [*] POST /register
+  - [*] POST /login
+  - [*] GET /users
+  - [*] GET /users/{id}
+  - [*] PUT /users/{id}
+  - [*] DELETE /users/{id}
 
-- [ ] **Docker Setup**
-  - [ ] Dockerfile creation
-  - [ ] Docker Compose configuration
-  - [ ] Database container setup
-  - [ ] Environment configuration
-  - [ ] Single command deployment
+### 🐳 Docker Setup
+  - [*] Dockerfile creation
+  - [*] Docker Compose configuration
+  - [*] Database container setup
+  - [*] Environment configuration
+  - [*] Single command deployment (`docker-compose up`)
 
-- [ ] **Best Practices Implementation**
-  - [ ] Environment configuration (.env)
-  - [ ] Dependency injection
-  - [ ] Error handling
-  - [ ] Input validation
-  - [ ] Code documentation
-  - [ ] Logging system
-  - [ ] Clean code architecture
+### ✨ Best Practices Implementation
+  - [*] Environment configuration
+    - [*] .env file setup
+    - [*] Configuration validation
+  - [*] Dependency injection
+  - [*] Error handling
+    - [*] Custom error responses
+    - [*] Error middleware
+  - [*] Code documentation
+    - [*] Function docstrings
+    - [*] Module documentation
+  - [*] Logging system
+    - [*] User creation logs
+    - [*] Authentication logs
+    - [*] Error logs
+  - [*] Clean code architecture
+    - [*] Proper file structure
+    - [*] Code organization
+    - [*] Naming conventions
 
-- [ ] **Documentation**
-  - [ ] API documentation (Swagger/ReDoc)
-  - [ ] Setup instructions
-  - [ ] Architecture explanation
-  - [ ] API usage examples
-  - [ ] Environment variables documentation
+### 📚 Documentation
+  - [*] API documentation
+    - [*] Swagger UI
+    - [*] ReDoc setup
+  - [*] Setup instructions
+  - [*] Architecture explanation
+  - [*] API usage examples
+  - [*] Environment variables documentation
 
-- [ ] **Optional Features**
-  - [ ] Unit tests
-  - [ ] Integration tests
-  - [ ] API rate limiting
-  - [ ] CI/CD setup
+### 🎯 Optional Features
+  - [*] Testing
+    - [*] Unit tests setup
+    - [*] Integration tests setup
+    - [*] Test coverage reports
+  - [*] API rate limiting
+    - [*] Rate limit middleware
+    - [*] Configuration options
+
 
 ## 🚀 Quick Start
 
