@@ -1,10 +1,11 @@
 import time
 from fastapi import HTTPException, Request, status
 from collections import defaultdict
+from app.common.config import settings
 
 # Rate limit configurations
-RATE_LIMIT = 5  # Max requests allowed
-RATE_LIMIT_PERIOD = 60  # Time period in seconds
+RATE_LIMIT = settings.RATE_LIMIT_MAX_REQUESTS
+RATE_LIMIT_PERIOD = settings.RATE_LIMIT_WINDOW
 
 # Dictionary to store IP request timestamps
 request_times = defaultdict(list)
