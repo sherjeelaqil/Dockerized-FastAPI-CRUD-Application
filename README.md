@@ -137,6 +137,17 @@ alembic upgrade head
 uvicorn app.main:app --reload
 ```
 
+### Running Unit tests/Coverage tests
+1. Unit tests
+```bash
+pytest -v
+```
+
+2. Coverage tests
+```bash
+pytest tests/ -v --cov=app
+```
+
 ## 📝 API Documentation
 
 ### Authentication Endpoints
