@@ -108,6 +108,14 @@ docker-compose up -d
 - Documentation: http://localhost:8000/docs
 - Alternative Documentation: http://localhost:8000/redoc
 
+5. Default Admin Credentials: 
+  An admin user will be created by default with the following credentials:
+  
+- Admin Email: admin@example.com
+- Admin Username: admin
+- Admin Password: strongpass123
+- Use these credentials to log in and obtain a token to create new users.
+
 ## 🔧 Development Setup
 
 ### Prerequisites
