@@ -5,83 +5,83 @@ This project is a User Management System built with FastAPI, providing a RESTful
 ## 📋 Features Checklist
 
 ### 📦 CRUD Operations
-  - [*] Create user endpoint
-  - [*] Read user(s) endpoint
-  - [*] Update user endpoint
-  - [*] Delete user endpoint
-  - [*] User model with required fields
-    - [*] id (unique identifier)
-    - [*] username (unique, required)
-    - [*] email (unique, required)
-    - [*] password (required)
-    - [*] role (admin/user)
+  - [X] Create user endpoint
+  - [X] Read user(s) endpoint
+  - [X] Update user endpoint
+  - [X] Delete user endpoint
+  - [X] User model with required fields
+    - [X] id (unique identifier)
+    - [X] username (unique, required)
+    - [X] email (unique, required)
+    - [X] password (required)
+    - [X] role (admin/user)
 
 ### 🔐 Authentication
-  - [*] JWT token-based authentication
-  - [*] Login endpoint implementation
-  - [*] Password hashing
-  - [*] Secure token generation and validation
+  - [X] JWT token-based authentication
+  - [X] Login endpoint implementation
+  - [X] Password hashing
+  - [X] Secure token generation and validation
 
 ### 👮 Authorization
-  - [*] Role-based access control
-    - [*] Admin role permissions
-    - [*] User role permissions
-  - [*] Authorization middleware
-  - [*] Protected route implementation
-  - [*] User-specific access restrictions
+  - [X] Role-based access control
+    - [X] Admin role permissions
+    - [X] User role permissions
+  - [X] Authorization middleware
+  - [X] Protected route implementation
+  - [X] User-specific access restrictions
 
 ### 🛣️ API Endpoints
-  - [*] POST /register
-  - [*] POST /login
-  - [*] GET /users
-  - [*] GET /users/{id}
-  - [*] PUT /users/{id}
-  - [*] DELETE /users/{id}
+  - [X] POST /register
+  - [X] POST /login
+  - [X] GET /users
+  - [X] GET /users/{id}
+  - [X] PUT /users/{id}
+  - [X] DELETE /users/{id}
 
 ### 🐳 Docker Setup
-  - [*] Dockerfile creation
-  - [*] Docker Compose configuration
-  - [*] Database container setup
-  - [*] Environment configuration
-  - [*] Single command deployment (`docker-compose up`)
+  - [X] Dockerfile creation
+  - [X] Docker Compose configuration
+  - [X] Database container setup
+  - [X] Environment configuration
+  - [X] Single command deployment (`docker-compose up`)
 
 ### ✨ Best Practices Implementation
-  - [*] Environment configuration
-    - [*] .env file setup
-    - [*] Configuration validation
-  - [*] Dependency injection
-  - [*] Error handling
-    - [*] Custom error responses
-    - [*] Error middleware
-  - [*] Code documentation
-    - [*] Function docstrings
-    - [*] Module documentation
-  - [*] Logging system
-    - [*] User creation logs
-    - [*] Authentication logs
-    - [*] Error logs
-  - [*] Clean code architecture
-    - [*] Proper file structure
-    - [*] Code organization
-    - [*] Naming conventions
+  - [X] Environment configuration
+    - [X] .env file setup
+    - [X] Configuration validation
+  - [X] Dependency injection
+  - [X] Error handling
+    - [X] Custom error responses
+    - [X] Error middleware
+  - [X] Code documentation
+    - [X] Function docstrings
+    - [X] Module documentation
+  - [X] Logging system
+    - [X] User creation logs
+    - [X] Authentication logs
+    - [X] Error logs
+  - [X] Clean code architecture
+    - [X] Proper file structure
+    - [X] Code organization
+    - [X] Naming conventions
 
 ### 📚 Documentation
-  - [*] API documentation
-    - [*] Swagger UI
-    - [*] ReDoc setup
-  - [*] Setup instructions
-  - [*] Architecture explanation
-  - [*] API usage examples
-  - [*] Environment variables documentation
+  - [X] API documentation
+    - [X] Swagger UI
+    - [X] ReDoc setup
+  - [X] Setup instructions
+  - [X] Architecture explanation
+  - [X] API usage examples
+  - [X] Environment variables documentation
 
 ### 🎯 Optional Features
-  - [*] Testing
-    - [*] Unit tests setup
-    - [*] Integration tests setup
-    - [*] Test coverage reports
-  - [*] API rate limiting
-    - [*] Rate limit middleware
-    - [*] Configuration options
+  - [X] Testing
+    - [X] Unit tests setup
+    - [X] Integration tests setup
+    - [X] Test coverage reports
+  - [X] API rate limiting
+    - [X] Rate limit middleware
+    - [X] Configuration options
 
 
 ## 🚀 Quick Start
