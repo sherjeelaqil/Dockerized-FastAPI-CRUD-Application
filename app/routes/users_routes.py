@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, status, Query
+from fastapi import APIRouter, Depends, HTTPException, status, Query, Request
 from sqlalchemy.orm import Session
 from typing import List
 from app import auth
@@ -44,7 +44,8 @@ def register_user(
 @router.post("/login", response_model=Token)
 def login(
     user: users_schemas.UserLogin,
-    db: Session = Depends(get_db)
+    db: Session = Depends(get_db),
+    request: Request = None
 ):
     rate_limiter(request)
     logger.info(f"Login attempt for user: {user.username}")
