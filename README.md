@@ -142,27 +142,27 @@ uvicorn app.main:app --reload
 ### Authentication Endpoints
 
 #### Register User
-```http
-POST /register
-Content-Type: application/json
-
-{
-    "username": "example_user",
-    "email": "user@example.com",
-    "password": "secure_password",
-    "role": "user"
-}
+```curl -X 'POST' \
+  'http://localhost:8000/register?token=XXXXXXXXXXX' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "email": "test2@example.com",
+  "password": "test2",
+  "role": "user",
+  "username": "test2"
+}'
 ```
 
 #### Login
-```http
-POST /login
-Content-Type: application/json
-
-{
-    "username": "example_user",
-    "password": "secure_password"
-}
+```curl -X 'POST' \
+  'http://localhost:8000/login' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "username": "test",
+  "password": "strongpass123"
+}'
 ```
 
 ### User Management Endpoints
@@ -173,30 +173,34 @@ Authorization: Bearer <your_jwt_token>
 ```
 
 #### Get All Users (Admin Only)
-```http
-GET /users
+```curl -X 'GET' \
+  'http://localhost:8000/users?token=XXXXXXXXXXXXXXXX' \
+  -H 'accept: application/json'
 ```
 
 #### Get User by ID
-```http
-GET /users/{user_id}
+```curl -X 'GET' \
+  'http://localhost:8000/users/2?token=XXXXXXXXXXXXXXXXX' \
+  -H 'accept: application/json'
 ```
 
 #### Update User (Admin Only)
-```http
-PUT /users/{user_id}
-Content-Type: application/json
-
-{
-    "username": "updated_username",
-    "email": "updated@example.com",
-    "role": "user"
-}
+```curl -X 'PUT' \
+  'http://localhost:8000/users/2?XXXXXXXXXXXXXX' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "username": "test",
+  "email": "test@example.com",
+  "password": "strongpass123",
+  "role": "admin"
+}'
 ```
 
 #### Delete User (Admin Only)
-```http
-DELETE /users/{user_id}
+```curl -X 'DELETE' \
+  'http://localhost:8000/users/2?XXXXXXXXXXXXX' \
+  -H 'accept: */*'
 ```
 
 ## 🏗️ Project Structure
