@@ -1,6 +1,5 @@
-# app/models.py
 from sqlalchemy import Column, Integer, String, Enum
-from app.database import Base
+from app.common.database import Base
 import enum
 
 class UserRole(str, enum.Enum):
