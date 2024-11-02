@@ -21,6 +21,18 @@ def register_user(
     admin_user: users_models.User = Depends(get_current_admin_user),
     token: str = Query(..., description="JWT token for authorization")
 ):
+    """
+    Creates a new user in the database.
+
+    Args:
+        user (users_schemas.UserCreate): The new user to be created.
+        db (Session): The database session.
+        admin_user (users_models.User): The admin user performing the registration.
+        token (str): The JWT token for authorization.
+
+    Raises:
+        HTTPException: If the username or email is already registered.
+    """
     logger.info(f"Admin {admin_user.username} attempting to register a new user: {user.username}")
     db_user = crud.get_user_by_username(db, user.username)
     db_email = crud.get_user_by_email(db, user.email)
@@ -47,6 +59,20 @@ def login(
     db: Session = Depends(get_db),
     request: Request = None
 ):
+    """
+    Authenticates a user using a username and password.
+
+    Args:
+        user (users_schemas.UserLogin): The user credentials.
+        db (Session): The database session.
+        request (Request): The current request.
+
+    Raises:
+        HTTPException: If the credentials are invalid.
+
+    Returns:
+        Token: The access token for the user.
+    """
     rate_limiter(request)
     logger.info(f"Login attempt for user: {user.username}")
     db_user = crud.get_user_by_username(db, user.username)
@@ -67,6 +93,16 @@ def read_users(
     db: Session = Depends(get_db),
     token: str = Query(..., description="JWT token for authorization")
 ):
+    """
+    Retrieves all users from the database.
+
+    Args:
+        db (Session): The database session.
+        token (str): The JWT token for authorization.
+
+    Returns:
+        List[users_schemas.UserResponse]: A list of all users in the database.
+    """
     return crud.get_all_users(db)
 
 @router.get("/users/{user_id}", response_model=users_schemas.UserResponse)
@@ -76,6 +112,22 @@ def read_user(
     current_user: users_schemas.UserResponse = Depends(get_current_user),
     token: str = Query(..., description="JWT token for authorization")
 ):
+    """
+    Retrieves a user from the database by ID.
+
+    Args:
+        user_id (int): ID of the user to retrieve.
+        db (Session): The database session.
+        current_user (users_schemas.UserResponse): The user performing the request.
+        token (str): The JWT token for authorization.
+
+    Returns:
+        users_schemas.UserResponse: The user model retrieved from the database.
+
+    Raises:
+        HTTPException: If the user is not found or if the current user lacks permissions.
+    """
+    
     logger.info(f"User {current_user.username} attempting to access user ID {user_id}")
     db_user = crud.get_user(db, user_id)
     if db_user is None:
@@ -100,6 +152,21 @@ def update_user(
     db: Session = Depends(get_db),
     token: str = Query(..., description="JWT token for authorization")
 ):
+    """
+    Updates a user in the database.
+
+    Args:
+        user_id (int): ID of the user to update.
+        user (users_schemas.UserUpdate): The new user data.
+        db (Session): The database session.
+        token (str): The JWT token for authorization.
+
+    Returns:
+        users_schemas.UserResponse: The updated user model.
+
+    Raises:
+        HTTPException: If the user is not found or if the current user lacks permissions.
+    """
     logger.info(f"Admin attempting to update user ID {user_id}")
     db_user = crud.get_user(db, user_id)
     if db_user is None:
@@ -118,6 +185,21 @@ def delete_user(
     db: Session = Depends(get_db),
     token: str = Query(..., description="JWT token for authorization")
 ):
+    """
+    Deletes a user from the database.
+
+    Args:
+        user_id (int): ID of the user to delete.
+        db (Session): The database session.
+        token (str): The JWT token for authorization.
+
+    Raises:
+        HTTPException: If the user is not found or if the current user lacks permissions.
+
+    Returns:
+        dict: A dictionary with a key "status" containing the string "success".
+    """
+
     logger.info(f"Admin attempting to delete user ID {user_id}")
     db_user = crud.get_user(db, user_id)
     if db_user is None:

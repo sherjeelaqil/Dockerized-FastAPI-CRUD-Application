@@ -11,6 +11,16 @@ RATE_LIMIT_PERIOD = settings.RATE_LIMIT_WINDOW
 request_times = defaultdict(list)
 
 def rate_limiter(request: Request):
+    """
+    Middleware to enforce a rate limit on incoming requests.
+
+    This middleware records the time of each incoming request and blocks
+    requests that exceed the rate limit.
+
+    :param request: The incoming request
+    :type request: fastapi.Request
+    :raises HTTPException: If the rate limit is exceeded
+    """
     client_ip = request.client.host
     current_time = time.time()
 
